@@ -33,9 +33,22 @@ function createGalleryItemMarkup(galleryItems) {
 }
 
 function onGalleryContainerClick(event) {
-    if (!event.target.classlist.contains('gallery__image')) {
+    const isGalleryImageEl = event.target.classlist.contains('gallery__image');
+    if (!isGalleryImageEl) {
         return;
     }
-
-    console.log(event.target)
+    
+    const urlImg = event.target.dataset.source;
+    console.log(urlImg)
+    
 }
+
+
+
+const instance = basicLightbox.create(`
+    <img src="${urlImg}">
+`)
+
+instance.show()
+
+
